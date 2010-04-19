@@ -27,7 +27,7 @@ def base
 end
 
 def link(file)
-  `ln -s #{base}/#{file} ~/.#{file}`
+  `ln -Fhs #{base}/#{file} ~/.#{file}`
 end
 
 def unlink(file)
