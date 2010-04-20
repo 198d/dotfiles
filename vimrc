@@ -8,6 +8,9 @@ set smarttab
 set smartindent
 set number
 
+set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+let g:netrw_browse_split=3
+
 " Less CSS
 " au BufRead,BufNewFile *.less setfiletype css
 
