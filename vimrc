@@ -8,6 +8,7 @@ set smarttab
 set smartindent
 set number
 set scrolloff=10
+set cursorline
 
 " set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 
