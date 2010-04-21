@@ -9,9 +9,19 @@ set smartindent
 set number
 set scrolloff=10
 
-set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+" set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+
+" Open files in new tabs from netrw
 let g:netrw_browse_split=3
 
-" Less CSS
-" au BufRead,BufNewFile *.less setfiletype css
+" Move cursor while in insert mode
+imap <C-h> <C-o>h
+imap <C-j> <C-o>j
+imap <C-k> <C-o>k
+imap <C-l> <C-o>l
+imap <C-d> <end>
+
+" Fuck some swap and backup files
+set noswapfile
+set nobackup
 
