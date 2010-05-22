@@ -1,5 +1,5 @@
-task :install => ["vim:install", "git:install"]
-task :uninstall => ["vim:uninstall", "git:uninstall"]
+task :install => ["vim:install", "git:install", "ack:install"]
+task :uninstall => ["vim:uninstall", "git:uninstall", "ack:uninstall"]
 
 namespace :vim do
   task :install do
@@ -9,6 +9,15 @@ namespace :vim do
   task :uninstall do
     unlink('vimrc')
     unlink('vim')
+  end
+end
+
+namespace :ack do
+  task :install do
+    link('ackrc')
+  end
+  task :uninstall do
+    unlink('ackrc')
   end
 end
 
