@@ -1,4 +1,5 @@
-colorscheme darkblue
+set t_Co=256
+colorscheme oceanblack256
 syntax on
 
 set expandtab
