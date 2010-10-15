@@ -1,5 +1,6 @@
-task :install => ["vim:install", "git:install", "ack:install"]
-task :uninstall => ["vim:uninstall", "git:uninstall", "ack:uninstall"]
+installable = [:vim, :ack, :irssi, :git, :screen]
+task :install => installable.map { |i| "#{i}:install" }
+task :uninstall => installable.map { |i| "#{i}:uninstall" }
 
 namespace :vim do
   task :install do
@@ -18,6 +19,15 @@ namespace :ack do
   end
   task :uninstall do
     unlink('ackrc')
+  end
+end
+
+namespace :irssi do  
+  task :install do
+    link('irssi')
+  end
+  task :uninstall do
+    unlink('irssi')
   end
 end
 
