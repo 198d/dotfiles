@@ -2,7 +2,7 @@ chdir
 source .screenrc
 
 screen -t 'IRC'
-stuff "irssi"
+stuff 'irssi\015'
 
 screen -t 'Solr'
 stuff "cd workspace/metromix.com/solr; bin/solr.sh run\015"
@@ -39,6 +39,12 @@ stuff "cd workspace/metromix.com/affiliate; vim .\015"
 
 screen -t 'Affiliate Bash'
 stuff "cd workspace/metromix.com/affiliate\015"
+
+screen -t 'Build Scripts Vim'
+stuff "cd workspace/metromix.com/build-scripts; vim .\015"
+
+screen -t 'Build Scripts Bash'
+stuff "cd workspace/metromix.com/build-scrpts\015"
 
 select 0
 
