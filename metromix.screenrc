@@ -2,7 +2,7 @@ chdir
 source .screenrc
 
 screen -t 'IRC'
-stuff 'irssi\015'
+stuff "irssi\015"
 
 screen -t 'Solr'
 stuff "cd workspace/metromix.com/solr; bin/solr.sh run\015"
