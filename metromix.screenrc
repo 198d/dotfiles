@@ -44,7 +44,7 @@ screen -t 'Build Scripts Vim'
 stuff "cd workspace/metromix.com/build-scripts; vim .\015"
 
 screen -t 'Build Scripts Bash'
-stuff "cd workspace/metromix.com/build-scrpts\015"
+stuff "cd workspace/metromix.com/build-scripts\015"
 
 select 0
 
