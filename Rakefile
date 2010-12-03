@@ -34,11 +34,9 @@ end
 namespace :screen do
   task :install do
     link('screenrc')
-    link('metromix.screenrc')
   end
   task :uninstall do
     unlink('screenrc')
-    unlink('metromix.screenrc')
   end
 end
 
