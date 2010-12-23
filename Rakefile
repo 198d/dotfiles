@@ -43,9 +43,11 @@ end
 namespace :screen do
   task :install do
     link('screenrc')
+    link('workspace.screenrc')
   end
   task :uninstall do
     unlink('screenrc')
+    link('workspace.screenrc')
   end
 end
 
