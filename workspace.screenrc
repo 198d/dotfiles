@@ -1,4 +1,4 @@
-source ~/.screenrc
+source "$HOME/.screenrc"
 
 screen -t Vim
 stuff "vim .\015"
