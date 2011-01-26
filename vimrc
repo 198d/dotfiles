@@ -16,6 +16,7 @@ set autoread
 " Open files in new tabs from netrw
 let g:netrw_browse_split=3
 let g:netrw_liststyle=3
+let g:netrw_list_hide='.*\.pyc$'
 
 " Move cursor while in insert mode
 imap <C-h> <C-o>h
