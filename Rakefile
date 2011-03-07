@@ -1,6 +1,7 @@
 installable = [:vim, :ack, :irssi, :git, :screen, :bash]
 task :install => installable.map { |i| "#{i}:install" }
 task :uninstall => installable.map { |i| "#{i}:uninstall" }
+task :extensions => ['vim:command_t']
 
 namespace :vim do
   task :install do
@@ -10,6 +11,12 @@ namespace :vim do
   task :uninstall do
     unlink('vimrc')
     unlink('vim')
+  end
+  task :command_t do
+    Dir.chdir('vim/ruby/command-t') do
+      `ruby extconf.rb`
+      `make`
+    end
   end
 end
 
