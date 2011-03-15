@@ -29,3 +29,4 @@ imap <C-d> <end>
 set noswapfile
 set nobackup
 
+autocmd Filetype python setlocal shiftwidth=4
