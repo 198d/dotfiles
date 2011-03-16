@@ -1,4 +1,4 @@
-installable = [:vim, :ack, :irssi, :git, :screen, :bash]
+installable = [:vim, :ack, :irssi, :git, :screen, :bash, :gem]
 task :install => installable.map { |i| "#{i}:install" }
 task :uninstall => installable.map { |i| "#{i}:uninstall" }
 task :extensions => ['vim:command_t']
@@ -44,6 +44,15 @@ namespace :irssi do
   end
   task :uninstall do
     unlink('irssi')
+  end
+end
+
+namespace :gem do  
+  task :install do
+    link('gemrc')
+  end
+  task :uninstall do
+    unlink('gemrc')
   end
 end
 
