@@ -62,6 +62,8 @@ namespace :git do
   task :install do
     link('gitignore')
     `git config --global core.excludesfile ~/.gitignore`
+    `git config --global user.name "John MacKenzie"`
+    `git config --global user.email john@nineteeneightd.com`
   end
   task :uninstall do
     unlink('gitignore')
