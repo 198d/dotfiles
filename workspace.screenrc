@@ -1,7 +1,7 @@
 source "$HOME/.screenrc"
 
 screen -t Vim
-stuff "vim .\015"
+stuff "vim \015"
 
 screen -t Bash
 
