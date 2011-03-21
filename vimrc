@@ -25,6 +25,8 @@ imap <C-k> <C-o>k
 imap <C-l> <C-o>l
 imap <C-d> <end>
 
+map <Leader>n :NERDTree<CR>
+
 " Fuck some swap and backup files
 set noswapfile
 set nobackup
