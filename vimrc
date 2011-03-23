@@ -12,6 +12,7 @@ set scrolloff=10
 set cursorline
 set backspace=indent,eol,start
 set autoread
+set hidden
 
 " Open files in new tabs from netrw
 let g:netrw_browse_split=3
