@@ -4,3 +4,6 @@ export PS1="[\w]$ "
 alias workspace='screen -c ~/.workspace.screenrc'
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+set -o vi
+

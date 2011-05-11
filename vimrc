@@ -28,6 +28,11 @@ imap <C-d> <end>
 
 map <Leader>n :NERDTree<CR>
 
+command! Rmsp %s/\s\+$//
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+map <Leader>rm :Rmsp<CR>
+
 " Fuck some swap and backup files
 set noswapfile
 set nobackup
