@@ -1,4 +1,4 @@
-installable = [:vim, :ack, :irssi, :git, :screen, :bash, :gem]
+installable = [:vim, :ack, :irssi, :git, :screen, :bash, :gem, :tmux]
 task :install => installable.map { |i| "#{i}:install" }
 task :uninstall => installable.map { |i| "#{i}:uninstall" }
 task :extensions => ['vim:command_t']
@@ -38,7 +38,7 @@ namespace :ack do
   end
 end
 
-namespace :irssi do  
+namespace :irssi do
   task :install do
     link('irssi')
   end
@@ -47,7 +47,7 @@ namespace :irssi do
   end
 end
 
-namespace :gem do  
+namespace :gem do
   task :install do
     link('gemrc')
   end
@@ -64,6 +64,15 @@ namespace :screen do
   task :uninstall do
     unlink('screenrc')
     link('workspace.screenrc')
+  end
+end
+
+namespace :tmux do
+  task :install do
+    link('tmux.conf')
+  end
+  task :uninstall do
+    unlink('tmux.conf')
   end
 end
 
