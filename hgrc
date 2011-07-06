@@ -1,0 +1,25 @@
+[extensions]
+hgext.purge=
+hgext.convert=
+hgext.graphlog=
+bookmarks=
+hgshelve=~/.hgext/hgshelve.py
+hgext.mq=
+hgext.rebase=
+hgext.color=
+transplant=
+pager=
+
+[bookmarks]
+track.current = True
+
+[alias]
+log = log --verbose
+revert = revert --no-backup
+
+[pager]
+pager = LESS='FSRX' less
+
+[ui]
+username = John MacKenzie <john@nineteeneightd.com>
+ignore = ~/.hgignore
