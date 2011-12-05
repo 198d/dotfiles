@@ -13,6 +13,10 @@ set cursorline
 set backspace=indent,eol,start
 set autoread
 set hidden
+set wildmode=longest,list
+set wildignore+=*.pyc
+set list
+set listchars=trail:·
 
 " Open files in new tabs from netrw
 let g:netrw_browse_split=3
@@ -30,11 +34,7 @@ map <Leader>n :NERDTree<CR>
 
 command! Rmsp %s/\s\+$//
 map <Leader>rm :Rmsp<CR>
-highlight ExtraWhitespace ctermbg=red guibg=red
-au ColorScheme * highlight ExtraWhitespace guibg=red
-au BufEnter * match ExtraWhitespace /\s\+$/
-au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-au InsertLeave * match ExtraWhiteSpace /\s\+$/
+
 
 " Fuck some swap and backup files
 set noswapfile

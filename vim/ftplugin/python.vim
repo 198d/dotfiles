@@ -1,2 +1,5 @@
 setlocal shiftwidth=4
-match ErrorMsg '\%>80v.\+'
+
+highlight PEP8 ctermbg=red guibg=red
+match PEP8 '\%>80v.\+'
+
