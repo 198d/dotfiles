@@ -11,6 +11,8 @@ export GEM_HOME=$RUBY_PATH/gems
 export GEM_PATH=$RUBY_PATH/gems
 export PATH=$RUBY_PATH/bin:$GEM_PATH/bin:$PATH
 
+export EDITOR=/usr/local/bin/vim
+
 function workspace {
   local s=$1
   if [ $# -ne 1 ]; then
