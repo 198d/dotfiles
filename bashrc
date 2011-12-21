@@ -1,9 +1,11 @@
 export PATH=/usr/local/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 export PS1="\[\e[1;34m\]\!\[\e[0m\] | \[\e[1;34m\]\u@\H\[\e[0m\] | \[\e[1;34m\]\@\[\e[0m\]\n[\w]$ "
 export ARCHFLAGS="-arch x86_64"
-export TERM='xterm-256color'
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+export TERM=xterm-256color
+[ -n "$TMUX" ] && export TERM=screen-256color
+
+export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 
 export CC=/usr/bin/gcc-4.2
 export RUBY_PATH=/usr/local/rubies/1.9.2-p290
