@@ -15,6 +15,14 @@ export PATH=$RUBY_PATH/bin:$GEM_PATH/bin:$PATH
 
 export EDITOR=/usr/local/bin/vim
 
+function attach {
+  if [ $# -ne 1 ]; then
+    return 1
+  fi
+
+  tmux attach -t $1
+}
+
 function workspace {
   local s=$1
   if [ $# -ne 1 ]; then
