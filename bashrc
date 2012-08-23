@@ -1,5 +1,5 @@
 export PATH=/usr/local/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
-export PS1="\[\e[1;34m\]\!\[\e[0m\] | \[\e[1;34m\]\u@\H\[\e[0m\] | \[\e[1;34m\]\@\[\e[0m\]\n[\w]$ "
+export PS1="\[\e[1;34m\]\u@\H\[\e[0m\] | \[\e[1;34m\]\@\[\e[0m\]\n[\w]$ "
 export ARCHFLAGS="-arch x86_64"
 
 export TERM=xterm-256color
@@ -14,6 +14,8 @@ export GEM_PATH=$RUBY_PATH/gems
 export PATH=$RUBY_PATH/bin:$GEM_PATH/bin:$PATH
 
 export EDITOR=/usr/local/bin/vim
+
+export NODE_PATH=/usr/local/lib/node_modules
 
 function attach {
   if [ $# -ne 1 ]; then
