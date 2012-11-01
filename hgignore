@@ -1,4 +1,0 @@
-.rvmrc
-
-syntax: glob
-*.pyc
