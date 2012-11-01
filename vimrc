@@ -1,3 +1,5 @@
+call pathogen#infect()
+
 set t_Co=256
 colorscheme oceanblack256
 syntax on
@@ -35,11 +37,9 @@ map <Leader>n :NERDTree<CR>
 command! Rmsp %s/\s\+$//
 map <Leader>rm :Rmsp<CR>
 
-
 " Fuck some swap and backup files
 set noswapfile
 set nobackup
 
 filetype on
-filetype plugin on
-
+filetype plugin indent on
