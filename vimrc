@@ -19,6 +19,8 @@ set wildmode=longest,list
 set wildignore+=*.pyc
 set list
 set listchars=trail:·
+set laststatus=2
+set statusline=%f\ %m\ \|\ %l\,%c\ \/\ %L\ (%p%%)
 
 " Open files in new tabs from netrw
 let g:netrw_browse_split=3
