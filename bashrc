@@ -45,3 +45,17 @@ function workspace {
   tmux -2 attach -t $s
 }
 
+function venv {
+  if [ $# -eq 1 ]; then
+    cd $1
+  fi
+
+  name=$(basename `pwd`)
+  location='./.env'
+
+  if [ ! -d $location ]; then
+    virtualenv --prompt='$name | ' $location
+  fi
+
+  source $location/bin/activate
+}
