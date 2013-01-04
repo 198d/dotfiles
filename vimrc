@@ -16,7 +16,7 @@ set backspace=indent,eol,start
 set autoread
 set hidden
 set wildmode=longest,list
-set wildignore+=*.pyc
+set wildignore+=*.pyc,.env/*
 set list
 set listchars=trail:·
 set laststatus=2
