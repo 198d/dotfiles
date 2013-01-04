@@ -47,6 +47,11 @@ function workspace {
 
 function venv {
   if [ $# -eq 1 ]; then
+    if [ "$1" == "destroy" ]; then
+      deactivate
+      rm -rf .env
+      return 0
+    fi
     cd $1
   fi
 
