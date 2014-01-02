@@ -44,14 +44,14 @@ function venv {
   if [ $# -eq 1 ]; then
     if [ "$1" == "destroy" ]; then
       deactivate
-      rm -rf .env
+      rm -rf .venv
       return 0
     fi
     cd $1
   fi
 
   name=$(basename `pwd`)
-  location='./.env'
+  location='./.venv'
 
   if [ ! -d $location ]; then
     virtualenv --prompt='$name | ' $location
