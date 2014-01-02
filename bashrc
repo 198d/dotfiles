@@ -7,15 +7,8 @@ export TERM=xterm-256color
 
 export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 
-export CC=/usr/bin/gcc-4.2
-export RUBY_PATH=/usr/local/rubies/1.9.2-p290
-export GEM_HOME=$RUBY_PATH/gems
-export GEM_PATH=$RUBY_PATH/gems
-export PATH=$RUBY_PATH/bin:$GEM_PATH/bin:$PATH
-
 export EDITOR=/usr/local/bin/vim
 
-export NODE_PATH=/usr/local/lib/node_modules
 
 function attach {
   if [ $# -ne 1 ]; then
@@ -24,6 +17,7 @@ function attach {
 
   tmux attach -t $1
 }
+
 
 function workspace {
   local s=$1
@@ -44,6 +38,7 @@ function workspace {
 
   tmux -2 attach -t $s
 }
+
 
 function venv {
   if [ $# -eq 1 ]; then
