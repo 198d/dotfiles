@@ -1,0 +1,15 @@
+#! /bin/bash
+
+
+function install_files {
+  for file in "$@"
+  do
+    echo -n "Installing $file..."
+    rm -rf ~/.$file
+    cp -R $file ~/.$file
+    echo "done."
+  done
+}
+
+
+install_files ackrc bashrc gemrc gitignore tmux.conf vimrc vim
