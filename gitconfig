@@ -1,0 +1,7 @@
+[user]
+email = john@nineteeneightd.com
+name = John MacKenzie
+
+
+[core]
+excludesfile = ~/.gitignore

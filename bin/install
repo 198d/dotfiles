@@ -12,4 +12,4 @@ function install_files {
 }
 
 
-install_files ackrc bashrc gemrc gitignore tmux.conf vimrc vim pyenv
+install_files ackrc bashrc gemrc gitignore tmux.conf vimrc vim pyenv gitconfig
