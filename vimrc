@@ -4,6 +4,7 @@ set t_Co=256
 colorscheme oceanblack256
 syntax on
 
+set modeline
 set expandtab
 set tabstop=2
 set shiftwidth=2
