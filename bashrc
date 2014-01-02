@@ -7,7 +7,7 @@ export TERM=xterm-256color
 
 export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 
-export EDITOR=/usr/local/bin/vim
+export EDITOR=/usr/bin/vim
 
 
 function attach {
