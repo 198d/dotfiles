@@ -1,5 +1,3 @@
 setlocal shiftwidth=4
-
-highlight PEP8 ctermbg=red guibg=red
-match PEP8 '\%>80v.\+'
-
+setlocal colorcolumn=80
+hi ColorColumn guibg=#2d2d2d ctermbg=246
