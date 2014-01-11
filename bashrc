@@ -54,7 +54,7 @@ function venv {
   location='./.venv'
 
   if [ ! -d $location ]; then
-    virtualenv --prompt='$name | ' $location
+    pyenv exec virtualenv --prompt='$name | ' $location
   fi
 
   source $location/bin/activate
