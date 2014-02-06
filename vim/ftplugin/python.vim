@@ -1,3 +1,3 @@
 setlocal shiftwidth=4
-setlocal colorcolumn=80
-hi ColorColumn guibg=#2d2d2d ctermbg=246
+let &l:colorcolumn=join(range(80,100), ",")
+hi ColorColumn ctermbg=236
