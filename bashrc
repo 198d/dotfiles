@@ -1,5 +1,5 @@
 export PATH=/usr/local/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
-export PS1="\[\e[1;34m\]\u@\H\[\e[0m\] | \[\e[1;34m\]\@\[\e[0m\]\n[\w]$ "
+export PS1="\[\e[0;36m\]\u@\h \[\e[1;30m\]|\[\e[0m\] \@\n\[\e[1;30m\][\[\e[0m\]\w\[\e[1;30m\]]\[\e[0m\] $ "
 export ARCHFLAGS="-arch x86_64"
 
 export TERM=xterm-256color
