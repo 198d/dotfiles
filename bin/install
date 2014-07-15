@@ -5,8 +5,12 @@ function install_files {
   for file in "$@"
   do
     echo -n "Installing $file..."
-    rm -rf ~/.$file
-    cp -R $file ~/.$file
+    if [ -d $file ]; then
+      mkdir -p $file
+      rsync -a $file/ ~/.$file
+    else
+      rsync $file ~/.$file
+    fi
     echo "done."
   done
 }
