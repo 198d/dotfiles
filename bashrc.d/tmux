@@ -9,17 +9,43 @@ function attach {
 
 
 function workspace {
-  local s=$1
-  if [ $# -ne 1 ]; then
+  local OPTIND s command
+
+  while getopts s:c: opt; do
+    case $opt in
+      s)
+        local s="$OPTARG"
+        ;;
+      c)
+        local command="$OPTARG"
+        ;;
+    esac
+  done
+
+
+  if [ -z "$s" ]; then
     s=$(basename `pwd`)
   fi
+
+  send_keys () { if [ ! -z "$2" ]; then tmux send-keys -t $1 "$2 && clear" C-m; fi }
 
   tmux has-session -t $s
   if [ $? -ne 0 ]; then
     tmux -2 new-session -d -s $s
+
     tmux new-window -t $s:0 -k -n Vim
-    tmux send-keys -t $s:0 "vim" C-m
+    send_keys $s:0 "vim"
+
     tmux new-window -t $s:1 -k -n Bash
+    send_keys $s:1 $command
+
+    tmux split-window -t $s:1 -h
+    send_keys $s:1 $command
+
+    tmux split-window -t $s:1 -v
+    send_keys $s:1 $command
+
+    tmux select-pane -t $s:1.0
     tmux select-window -t $s:0
 
     sleep 1
