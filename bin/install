@@ -7,9 +7,9 @@ function install_files {
     echo -n "Installing $file..."
     if [ -d $file ]; then
       mkdir -p $file
-      rsync -a $file/ ~/.$file
+      rsync -a $file/ $HOME/.$file
     else
-      rsync $file ~/.$file
+      rsync $file $HOME/.$file
     fi
     echo "done."
   done
