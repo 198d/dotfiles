@@ -1,4 +1,7 @@
-# vi: set ft=sh :
+#! /bin/bash
+[ -n "$TMUX" ] && export TERM=screen-256color
+
+
 function attach {
   if [ $# -ne 1 ]; then
     return 1
