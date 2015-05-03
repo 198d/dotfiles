@@ -1,12 +1,9 @@
 #! /bin/bash
-
-
 function install_files {
   for file in "$@"
   do
     echo -n "Installing $file..."
     if [ -d $file ]; then
-      mkdir -p $file
       rsync -a $file/ $HOME/.$file
     else
       rsync $file $HOME/.$file
@@ -16,4 +13,4 @@ function install_files {
 }
 
 
-install_files ackrc bashrc bashrc.d gemrc gitignore tmux.conf vimrc vim pyenv gitconfig
+install_files bashrc bashrc.d gitignore tmux.conf vimrc vim pyenv gitconfig
