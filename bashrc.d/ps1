@@ -45,7 +45,8 @@ function .ps1.prompt {
 
 
 function .ps1.time {
-  echo -e "$(.ps1.colorize 2 $(date "+%H:%M:%S"))"
+  echo -e "$(.ps1.colorize 2 $(date "+%H"))$(.ps1.separator :)$(.ps1.colorize 2 $(date "+%M"))$(.ps1.separator :)$(.ps1.colorize 2 $(date "+%S"))"
 }
+
 
 export PS1="\$(.ps1.time) $(.ps1.separator \|) $(.ps1.cwd) $(.ps1.separator \|) $(.ps1.login)\$(.ps1.git_branch)\n$(.ps1.prompt)"
