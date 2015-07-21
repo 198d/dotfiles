@@ -1,7 +1,9 @@
 call pathogen#infect()
 
 set t_Co=256
-colorscheme oceanblack256
+set background=dark
+colorscheme base16-default
+
 syntax on
 
 set noswapfile
