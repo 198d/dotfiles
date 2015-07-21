@@ -2,16 +2,7 @@
 [ -n "$TMUX" ] && export TERM=screen-256color
 
 
-function attach {
-  if [ $# -ne 1 ]; then
-    return 1
-  fi
-
-  tmux attach -t $1
-}
-
-
-function workspace {
+function .workspace {
   local OPTIND s command
 
   while getopts s:c: opt; do
