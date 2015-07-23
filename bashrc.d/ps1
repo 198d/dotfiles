@@ -17,7 +17,7 @@ function .ps1.label {
 function .ps1.git_branch {
   local branch=$(git branch 2> /dev/null | awk 'BEGIN { FS="[ (]+" } { if ($1 == "*") print $2; }')
   local rev=$(git rev-parse --short HEAD 2> /dev/null)
-  local status_lines=$(git status --porcelain 2> /dev/null | grep '^ [DM]' | wc -l)
+  local status_lines=$(git status --porcelain 2> /dev/null | grep '^[ DM][ DM]' | wc -l)
 
   if [[ $status_lines -gt 0 ]]; then
     branch=$(.ps1.colorize 3 $branch)
