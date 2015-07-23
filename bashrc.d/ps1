@@ -53,4 +53,8 @@ function .ps1.time {
 }
 
 
-export PS1="\$(.ps1.time) $(.ps1.separator \|) $(.ps1.cwd) $(.ps1.separator \|) $(.ps1.login)\$(.ps1.git_branch)\n$(.ps1.prompt)"
+export PS1="\$(.ps1.time \$?) \
+$(.ps1.separator \|) \
+$(.ps1.login)\
+\$(.ps1.git_branch)\n\
+$(.ps1.cwd) \$(.ps1.prompt)"
