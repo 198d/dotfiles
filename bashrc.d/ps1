@@ -1,6 +1,6 @@
 #! /bin/bash
 function .ps1.colorize {
-  echo -e "\033[38;5;$1m$2\033[0m"
+  printf "\001\033[38;5;%dm\002%s\001\033[0m\002" $1 $2
 }
 
 
