@@ -45,7 +45,11 @@ function .ps1.prompt {
 
 
 function .ps1.time {
-  echo -e "$(.ps1.colorize 2 $(date "+%H"))$(.ps1.separator :)$(.ps1.colorize 2 $(date "+%M"))$(.ps1.separator :)$(.ps1.colorize 2 $(date "+%S"))"
+  local color=2
+  if [[ $1 -gt 0 ]]; then
+    color=1
+  fi
+  echo -e "$(.ps1.colorize $color $(date "+%H"))$(.ps1.separator :)$(.ps1.colorize $color $(date "+%M"))$(.ps1.separator :)$(.ps1.colorize $color $(date "+%S"))"
 }
 
 
