@@ -30,9 +30,8 @@ function .ps1.git_branch {
 
 
 function .ps1.login {
-  echo -e "$(.ps1.colorize 4 "\\u")$(.ps1.separator @)$(.ps1.colorize 4 "\\h")"
+echo -e "$(.ps1.colorize 4 "$(whoami)")$(.ps1.separator @)$(.ps1.colorize 4 "$(hostname)")"
 }
-
 
 function .ps1.cwd {
   echo "\w"
@@ -54,7 +53,7 @@ function .ps1.time {
 
 
 export PS1="\$(.ps1.time \$?) \
-$(.ps1.separator \|) \
-$(.ps1.login)\
+\$(.ps1.separator \|) \
+\$(.ps1.login)\
 \$(.ps1.git_branch)\n\
 $(.ps1.cwd) \$(.ps1.prompt)"
