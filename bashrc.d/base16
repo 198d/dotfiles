@@ -1,0 +1,4 @@
+#! /bin/bash
+function .base16.reset {
+  source ~/.bashrc.d/base16-default.dark.sh
+}
