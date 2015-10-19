@@ -16,6 +16,8 @@ function .ps1.label {
 
 function .ps1.git_branch {
   local branch=$(git branch 2> /dev/null | awk 'BEGIN { FS="[ (]+" } { if ($1 == "*") print $2; }')
+  if [ -z $branch ]; then return; fi
+
   local rev=$(git rev-parse --short HEAD 2> /dev/null)
   local status_lines=$(git status --porcelain 2> /dev/null | grep '^[ DM][ DM]' | wc -l)
 
@@ -24,13 +26,12 @@ function .ps1.git_branch {
     rev=$(.ps1.colorize 3 $rev)
   fi
 
-  if [ -z $branch ]; then return; fi
   echo -e " $(.ps1.separator \|) $(.ps1.label 5 git)$branch$(.ps1.separator @)$rev"
 }
 
 
 function .ps1.login {
-echo -e "$(.ps1.colorize 4 "$(whoami)")$(.ps1.separator @)$(.ps1.colorize 4 "$(hostname)")"
+echo -e "$(.ps1.colorize 4 "\u")$(.ps1.separator @)$(.ps1.colorize 4 "\h")"
 }
 
 function .ps1.cwd {
@@ -48,12 +49,13 @@ function .ps1.time {
   if [[ $1 -gt 0 ]]; then
     color=1
   fi
-  echo -e "$(.ps1.colorize $color $(date "+%H"))$(.ps1.separator :)$(.ps1.colorize $color $(date "+%M"))$(.ps1.separator :)$(.ps1.colorize $color $(date "+%S"))"
+  local parts=($(date "+%H %M %S"))
+  echo -e "$(.ps1.colorize $color ${parts[0]})$(.ps1.separator :)$(.ps1.colorize $color ${parts[1]})$(.ps1.separator :)$(.ps1.colorize $color ${parts[2]})"
 }
 
 
 export PS1="\$(.ps1.time \$?) \
 \$(.ps1.separator \|) \
-\$(.ps1.login)\
+$(.ps1.login)\
 \$(.ps1.git_branch)\n\
 $(.ps1.cwd) \$(.ps1.prompt)"
