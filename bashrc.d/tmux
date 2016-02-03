@@ -33,13 +33,15 @@ function .workspace {
     tmux new-window -t $s:1 -k -n Bash
     send_keys $s:1 $command
 
-    tmux split-window -t $s:1 -h
-    send_keys $s:1 $command
-
     tmux split-window -t $s:1 -v
     send_keys $s:1 $command
 
+    tmux split-window -t $s:1 -h
+    send_keys $s:1 $command
+
     tmux select-pane -t $s:1.0
+    tmux resize-pane -t $s:1.0 -D 10
+
     tmux select-window -t $s:0
 
     sleep 1
