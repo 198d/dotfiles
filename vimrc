@@ -38,3 +38,5 @@ filetype plugin indent on
 
 command! Rmsp %s/\s\+$//
 map <Leader>rm :Rmsp<CR>
+
+let g:ctrlp_working_path_mode = ''
