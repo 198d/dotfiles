@@ -1,0 +1,23 @@
+#! /usr/bin/env bash
+function .pass.env {
+  # local entries=$1
+  local environment
+
+  while [ $# -gt 0 ]; do
+    local entry=$1
+    shift
+    if [ "$entry" = "--" ]; then
+      break
+    elif [ ! -f "$PASSWORD_STORE_DIR/$entry.gpg" ]; then
+      environment="$environment $(pass show env/$entry)"
+    else
+      environment="$environment $(pass show $entry)"
+    fi
+  done
+
+  if [ $# -gt 0 ]; then
+    eval $environment "$@"
+  else
+    eval $environment printenv
+  fi
+}
