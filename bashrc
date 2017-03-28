@@ -14,3 +14,8 @@ if [ -d ~/.bashrc.d ]; then
     source $rc
   done
 fi
+
+
+function .bashrc.reload {
+  source $HOME/.bashrc
+}
