@@ -4,6 +4,11 @@ function .ps1.colorize {
 }
 
 
+function .ps1.bold {
+  printf "\001\033[1m\002%s\001\033[0m\002" $1
+}
+
+
 function .ps1.separator {
   echo -e "$(.ps1.colorize 8 $1)"
 }
@@ -26,9 +31,18 @@ function .ps1.git_branch {
     rev=$(.ps1.colorize 3 $rev)
   fi
 
-  echo -e " $(.ps1.separator \|) $(.ps1.label 5 git)$branch$(.ps1.separator @)$rev"
+  echo -e "$(.ps1.separator \()$branch$(.ps1.separator @)$rev$(.ps1.separator \)) "
 }
 
+function .ps1.nix_shell {
+  if [ -z $IN_NIX_SHELL ]; then return; fi
+  echo -e "$(.ps1.bold $(.ps1.colorize 4 •)) "
+}
+
+function .ps1.virtualenv {
+  if [ -z $VIRTUAL_ENV ]; then return; fi
+  echo -e "$(.ps1.bold $(.ps1.colorize 2 •)) "
+}
 
 function .ps1.login {
 echo -e "$(.ps1.colorize 4 "\u")$(.ps1.separator @)$(.ps1.colorize 4 "\h")"
@@ -53,9 +67,9 @@ function .ps1.time {
   echo -e "$(.ps1.colorize $color ${parts[0]})$(.ps1.separator :)$(.ps1.colorize $color ${parts[1]})$(.ps1.separator :)$(.ps1.colorize $color ${parts[2]})"
 }
 
-
-export PS1="\$(.ps1.time \$?) \
-\$(.ps1.separator \|) \
-$(.ps1.login)\
-\$(.ps1.git_branch)\n\
-$(.ps1.cwd) \$(.ps1.prompt)"
+export PS1="\$(.ps1.time \$?) \$(.ps1.nix_shell)\$(.ps1.virtualenv)$(.ps1.cwd) \$(.ps1.prompt)"
+# export PS1="\$(.ps1.time \$?) \
+# \$(.ps1.separator \|) \
+# $(.ps1.login)\
+# \$(.ps1.git_branch)\n\
+# $(.ps1.cwd) \$(.ps1.prompt)"
