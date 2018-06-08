@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 function install_files {
   for file in "$@"
   do
@@ -13,4 +13,4 @@ function install_files {
 }
 
 
-install_files bashrc bashrc.d gitignore tmux.conf vimrc vim pyenv gitconfig
+install_files bashrc bashrc.d gitconfig gitignore tmux.conf vimrc vim
