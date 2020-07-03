@@ -1,4 +1,6 @@
 #! /usr/bin/env bash
+export PASSWORD_STORE_DIR=~/.password-store
+
 function .pass.env {
   # local entries=$1
   local environment
@@ -8,7 +10,7 @@ function .pass.env {
     shift
     if [ "$entry" = "--" ]; then
       break
-    elif [ ! -f "$PASSWORD_STORE_DIR/$entry.gpg" ]; then
+    elif [ -f "$PASSWORD_STORE_DIR/env/$entry.gpg" ]; then
       environment="$environment $(pass show env/$entry)"
     else
       environment="$environment $(pass show $entry)"
@@ -16,8 +18,8 @@ function .pass.env {
   done
 
   if [ $# -gt 0 ]; then
-    eval $environment "$@"
+    (eval export $environment && exec "$@")
   else
-    eval $environment printenv
+    (eval export $environment; exec printenv)
   fi
 }
