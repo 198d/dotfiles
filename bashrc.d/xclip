@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+.cbcopy () {
+  xclip -selection c
+}
+
+
+.cbpaste () {
+  xclip -selection c -out
+}

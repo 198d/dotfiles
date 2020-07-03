@@ -1,0 +1,14 @@
+XTerm.scrollBar: true
+XTerm.rightScrollBar: true
+
+XTerm.termName: xterm-256color
+
+XTerm.VT100.faceName: Liberation Mono
+XTerm.VT100.faceSize: 9
+XTerm.VT100.translations: #override \
+	Shift Ctrl<Key>C: copy-selection(CLIPBOARD) \n\
+	Shift Ctrl<Key>V: insert-selection(CLIPBOARD) \n
+	Shift Ctrl<Key>V: insert-selection(PRIMARY) \n
+
+URxvt.scrollBar: false
+URxvt.font: xft:Liberation Mono:size=9
