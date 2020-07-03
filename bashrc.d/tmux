@@ -1,7 +1,4 @@
 #! /bin/bash
-[ -n "$TMUX" ] && export TERM=screen-256color
-
-
 function .workspace {
   local session=$(logname)
 
@@ -12,19 +9,7 @@ function .workspace {
   tmux has-session -t $session
   if [ $? -ne 0 ]; then
     tmux -2 new-session -d -s $session
-
     tmux new-window -t $session:0 -k -n home
-    send_keys $session:0
-
-    tmux split-window -t $session:0 -v
-    send_keys $session:0
-
-    tmux split-window -t $session:0 -h
-    send_keys $session:0
-
-    tmux select-pane -t $session:0.0
-    tmux resize-pane -t $session:0.0 -D 10
-
     sleep 1
   fi
 
@@ -43,7 +28,7 @@ function .project {
 
   if ! tmux select-window -t $project; then
     tmux new-window -n $project
-    tmux send-keys vim C-m
+    tmux send-keys nvim C-m
     tmux split-window
     tmux split-window -h
   fi
@@ -54,9 +39,9 @@ function .tmux.git_status {
   cd $1
 
   local branch=$(git branch 2> /dev/null | awk 'BEGIN { FS="[ (]+" } { if ($1 == "*") print $2; }')
-  if [ -z $branch ]; then return; fi
+  if [ -z $branch ]; then echo "[no branch]"; fi
 
   local rev=$(git rev-parse --short HEAD 2> /dev/null)
 
-  echo -e "[$branch@$rev]"
+  echo -e "[$branch]"
 }
