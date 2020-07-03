@@ -1,5 +1,5 @@
 export TERM=xterm-256color
-export EDITOR=/usr/bin/vim
+export EDITOR=$(which nvim)
 
 
 function .path.insert {
