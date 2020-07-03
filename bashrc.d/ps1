@@ -31,7 +31,7 @@ function .ps1.git_branch {
     rev=$(.ps1.colorize 3 $rev)
   fi
 
-  echo -e "$(.ps1.separator \()$branch$(.ps1.separator @)$rev$(.ps1.separator \)) "
+  echo -e "$(.ps1.separator \()$branch$(.ps1.separator \)) "
 }
 
 function .ps1.nix_shell {
@@ -67,7 +67,7 @@ function .ps1.time {
   echo -e "$(.ps1.colorize $color ${parts[0]})$(.ps1.separator :)$(.ps1.colorize $color ${parts[1]})$(.ps1.separator :)$(.ps1.colorize $color ${parts[2]})"
 }
 
-export PS1="\$(.ps1.time \$?) \$(.ps1.nix_shell)\$(.ps1.virtualenv)$(.ps1.cwd) \$(.ps1.prompt)"
+export PS1="\$(.ps1.time \$?) \$(.ps1.nix_shell)\$(.ps1.virtualenv)$(.ps1.cwd) \$(.ps1.git_branch)\$(.ps1.prompt)"
 # export PS1="\$(.ps1.time \$?) \
 # \$(.ps1.separator \|) \
 # $(.ps1.login)\
