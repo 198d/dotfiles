@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Avoid setting Fish directly as login shell because it might not be in
+# /etc/shells if only installed in Nix profile. We also need to ensure Nix
+# profile is properly sourced before dropping into Fish. Put this check in
+# ~/.bash_profile to ensure it is only run for login shells allowing bash to be
+# run interactively if necessary.
+[ ! -z "$PS1" ] && exec fish

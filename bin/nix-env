@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+[ -f "$(which dotfiles-deactivate)" ] && \
+  DOTFILES_DEACTIVATE=$(readlink -f $(which dotfiles-deactivate))
+
+nix-env --file profile.nix "$@"
+
+[ -f "$(which dotfiles-activate)" ] && \
+  DOTFILES_ACTIVATE=$(readlink -f $(which dotfiles-activate))
+
+[ ! -z "$DOTFILES_DEACTIVATE" ] && $DOTFILES_DEACTIVATE
+[ ! -z "$DOTFILES_ACTIVATE" ] && $DOTFILES_ACTIVATE
