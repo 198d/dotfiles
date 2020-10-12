@@ -1,2 +1,29 @@
 #!/usr/bin/env bash
-exec bin/nix-env --install --remove-all
+EXTRA_PROFILES=( )
+while (( "$#" )); do
+  case "$1" in
+    --)
+      shift
+      break
+      ;;
+    -*)
+      break
+      ;;
+    *)
+      EXTRA_PROFILES+=($1)
+      shift
+      ;;
+  esac
+done
+
+if [ ${#EXTRA_PROFILES[@]} -eq 0 ] && [ -f ~/.nix-profile/share/dotfiles/profiles.json ]; then
+  PROFILES=( $(jq -r .[] < ~/.nix-profile/share/dotfiles/profiles.json) )
+else
+  PROFILES=( "base" )
+  PROFILES+=( ${EXTRA_PROFILES[@]} )
+fi
+
+echo ${PROFILES[@]}
+
+exec bin/nix-env --install --remove-all \
+  --arg profiles "[ $(for profile in ${PROFILES[@]}; do echo \"$profile\"; done) ]" "$@"

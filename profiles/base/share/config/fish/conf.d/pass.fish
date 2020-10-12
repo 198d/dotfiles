@@ -1,0 +1,2 @@
+set -x PASSWORD_STORE_DIR ~/.password-store
+set -x PASSWORD_STORE_ENABLE_EXTENSIONS true

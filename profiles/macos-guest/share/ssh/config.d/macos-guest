@@ -1,0 +1,3 @@
+# vi: ft=sshconfig
+Host macos
+  Hostname 10.115.115.1

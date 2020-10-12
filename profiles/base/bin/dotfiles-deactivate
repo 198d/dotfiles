@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+for package in $(jq -r .[] < $1/share/dotfiles/profiles.json); do
+  stow --dir $1/share/dotfiles --target $HOME --delete $(basename $package)
+done

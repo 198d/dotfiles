@@ -1,32 +1,15 @@
 with import <nixpkgs> {};
 
-stdenv.mkDerivation rec {
-  name = "dotfiles";
-  source = ./src;
+{ profiles }:
 
-  nvimPlugins = [
-    vimPlugins.vim-nix
-    vimPlugins.ctrlp
-  ];
+let
+  dotfiles-meta = writeTextFile {
+    name = "dotfiles-meta";
+    text = builtins.toJSON profiles;
+    destination = "/share/dotfiles/profiles.json";
+  };
 
-  phases = [
-    "installPhase"
-  ];
+  profilePackages = map (p: import (./. + "/profiles/${p}")) profiles;
+in
 
-  installPhase = ''
-      mkdir -p $out/bin
-      cp -r $source/bin $out
-
-      mkdir -p $out/share/dotfiles/home
-      for config in $source/share/*; do
-        cp -r --no-preserve=mode $config $out/share/dotfiles/home/.$(basename $config)
-      done
-
-      mkdir -p $out/share/dotfiles/home/.local/share/nvim/site
-      for plugin in ${toString nvimPlugins}; do
-        cp -r --no-preserve=mode $plugin/share/vim-plugins/*/{plugin,ftplugin,ftdetect,doc,color,syntax,indent,autoload} \
-          $out/share/dotfiles/home/.config/nvim
-      done
-      ln -s ${neovim}/bin/nvim $out/bin/vim
-  '';
-}
+[dotfiles-meta] ++ builtins.foldl' (x: y: x ++ y) (builtins.head profilePackages) (builtins.tail profilePackages)

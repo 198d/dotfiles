@@ -1,6 +1,10 @@
+execute pathogen#infect()
+
 syntax on
 filetype on
 filetype plugin indent on
+
+colorscheme base16-default-dark
 
 set backspace=indent,eol,start
 

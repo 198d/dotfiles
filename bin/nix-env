@@ -2,9 +2,9 @@
 set -eo pipefail
 
 [ -f "$(which dotfiles-deactivate)" ] && \
-  DOTFILES_DEACTIVATE=$(readlink -f $(which dotfiles-deactivate))
+  DOTFILES_DEACTIVATE="$(readlink -f $(which dotfiles-deactivate)) $(readlink -f ~/.nix-profile)"
 
-nix-env --file profile.nix "$@"
+nix-env --file . "$@"
 
 [ -f "$(which dotfiles-activate)" ] && \
   DOTFILES_ACTIVATE=$(readlink -f $(which dotfiles-activate))

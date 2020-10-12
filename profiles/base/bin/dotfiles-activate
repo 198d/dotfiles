@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+for package in $(jq -r .[] < ~/.nix-profile/share/dotfiles/profiles.json); do
+  stow --dir ~/.nix-profile/share/dotfiles --no-folding --target $HOME --stow $(basename $package)
+done
