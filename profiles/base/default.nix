@@ -21,7 +21,7 @@ in
   gnupg
   pinentry
   pinentry-curses
-  dpkg
+  gnumake
 
   # tools
   openssh
@@ -33,7 +33,7 @@ in
   git
   pass
   jq
-  vault
+  parallel
 
   # scripting
   ruby
