@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+if [ -d ~/.bash_profile.d/* ]; then
+  for profile in ~/.bash_profile.d/*; do
+    source $profile
+  done
+fi
+
 # Avoid setting Fish directly as login shell because it might not be in
 # /etc/shells if only installed in Nix profile. We also need to ensure Nix
 # profile is properly sourced before dropping into Fish. Put this check in
