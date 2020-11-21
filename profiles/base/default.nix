@@ -27,6 +27,7 @@ in
   openssh
   fish
   tmux
+  tmuxinator
   neovim
   stow
   git

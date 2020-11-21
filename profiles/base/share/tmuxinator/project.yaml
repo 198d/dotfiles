@@ -1,0 +1,10 @@
+name: <%= @args[0].split("/")[-1] %>
+root: <%= @args[0] %>
+
+windows: 
+  - workspace:
+      layout: main-horizontal
+      panes:
+          - nvim
+          -
+          -
