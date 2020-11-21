@@ -5,8 +5,9 @@ function fish_right_prompt
 
   if test $original_status -ne 0
     set status_color red
-    if test $original_status -gt 128
-      set return_code SIG(kill -l (math $original_status - 128))
+    set signal_value (math $original_status - 128)
+    if test $original_status -gt 128 && kill -l $signal_value 2>/dev/null >&2
+      set return_code SIG(kill -l $signal_value)
     else
       set return_code $original_status
     end
