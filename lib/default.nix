@@ -15,7 +15,7 @@ with import <nixpkgs> {};
       mkdir -p $out/bin
 
       # Scripts
-      cp -r $source/bin $out
+      [ -d $source/bin ] && cp -r $source/bin $out
 
       # Dotfiles
       mkdir -p $out/share/dotfiles/${profileName}
@@ -36,6 +36,24 @@ with import <nixpkgs> {};
       for plugin in ${toString nvimPlugins}; do
         cp -r --no-preserve=mode $plugin/share/vim-plugins/* $out/share/dotfiles/${profileName}/.config/nvim/bundle
       done
+    '';
+  };
+
+  hashicorpRelease = { name, version, sha256 }: stdenv.mkDerivation {
+    inherit version;
+
+    name = "${name}-${version}";
+
+    src = fetchzip {
+      inherit sha256;
+      url = "https://releases.hashicorp.com/${name}/${version}/${name}_${version}_linux_amd64.zip";
+    };
+
+    phases = [ "installPhase" ];
+
+    installPhase = ''
+      mkdir -p $out/bin
+      cp $src/${name} $out/bin
     '';
   };
 }
