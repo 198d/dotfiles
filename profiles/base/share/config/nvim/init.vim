@@ -1,5 +1,9 @@
 execute pathogen#infect()
 
+for initFile in split(glob('~/.config/nvim/init.d/*.vim'), '\n')
+  exe 'source' initFile
+endfor
+
 syntax on
 filetype on
 filetype plugin indent on
